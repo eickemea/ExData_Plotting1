@@ -1,11 +1,11 @@
 plot3 <- function(){
       # Download data to working directory if necessary
-      #if(!file.exists("household_power_consumption.txt")){
-            #temp <- tempfile()
-            #download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", destfile = temp)
-            #unzip(temp)
-            #unlink(temp)
-      #}
+      if(!file.exists("household_power_consumption.txt")){
+      temp <- tempfile()
+      download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", destfile = temp)
+      unzip(temp)
+      unlink(temp)
+      }
       
       # Read a suitable subset of data into R (to reduce memory usage)
       start <- grep("1/2/2007", readLines("household_power_consumption.txt"))[1] - 1
